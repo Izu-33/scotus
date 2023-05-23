@@ -2,6 +2,7 @@ import string
 import re
 from nltk.corpus import stopwords
 import spacy
+import en_core_web_sm
 
 # nltk.download('stopwords')
 
