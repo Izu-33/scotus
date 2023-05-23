@@ -1,0 +1,2 @@
+# scotus
+Repo about SCOTUS
