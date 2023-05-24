@@ -61,7 +61,7 @@ Target Variable: First_Party_Winner, if true means that the first party won, and
 
 - LSTM
 
-# Deploying model in Streamlit app
+# Model User Interface with Streamlit
 
 <img src="images/app_homepage.jpg" alt="framework" style="display: block; margin-left: auto; margin-right: auto"/>
 
