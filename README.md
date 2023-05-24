@@ -16,19 +16,33 @@ Target Variable: First_Party_Winner, if true means that the first party won, and
 ### Features
 
 `ID`
+
 `name`
+
 `href`
+
 `docket`
+
 `term`
+
 `first_party`
+
 `second_part`
+
 `facts`
+
 `facts_len`
+
 `majority_vote`
+
 `minority_vote`
+
 `first_party_winner`
+
 `decision_type`
+
 `disposition`
+
 `issue_area`
 
 # Libraries used
@@ -45,6 +59,7 @@ For the project the following Python libraries for Data Science and Machine Lear
 | sklearn | For machine learning |
 | wordcloud | For creating wordclouds |
 | spacy | For lemmatization |
+| streamlit | For application development |
 
 
 # Modeling (Random Forest, Extreme Gradient Boosting, LSTM)
