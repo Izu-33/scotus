@@ -37,35 +37,35 @@ Target Variable: First_Party_Winner, if true means that the first party won, and
 
 ### Features
 
-`ID`
+`ID`: Unique case identiﬁer
 
-`name`
+`name`: The name of the case
 
-`href`
+`href`: The Oyez’s API URL for the case
 
-`docket`
+`docket`: A special identiﬁer of the case used by the legal system
 
-`term`
+`term`: The year when the Court received the case
 
-`first_party`
+`first_party`: The name of the ﬁrst party (petitioner)
 
-`second_part`
+`second_part`: The name of the second party (respondent)
 
-`facts`
+`facts`: The absolute, neutral facts of the case written by the court clerk
 
-`facts_len`
+`facts_len`: The number of justices voting for the majority opinion
 
-`majority_vote`
+`majority_vote`: The number of justices voting for the majority opinion
 
-`minority_vote`
+`minority_vote`: The number of justices voting for the minority opinion
 
-`first_party_winner`
+`first_party_winner`: True if the ﬁrst party won the case, otherwise False and the second party won the case
 
-`decision_type`
+`decision_type`: The type of the decision decided by the court, e.g.: per curiam, equally divided,opinion of the court
 
-`disposition`
+`disposition`: The treatment the Supreme Court accorded the court whose decision it reviewed;e.g.: afﬁrmed, reversed, vacated
 
-`issue_area`
+`issue_area`: The pre-deﬁned legal issue category of the case; e.g.: Civil Rights, CriminalProcedure, Federal Taxation
 
 # Modeling (Random Forest, Extreme Gradient Boosting, LSTM)
 
