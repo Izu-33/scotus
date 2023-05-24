@@ -2,7 +2,9 @@
 
 <img src="images/scotus_seal.png" alt="scotus image" style="display: block; margin-left: auto; margin-right: auto"/>
 
-Understanding the judicial decision-making process may be aided by the ability to predict the results of legal matters. In light of this, we trained a model that can predict and classify the court's decision given the case's information from the plaintiff and the defendant in textual format. This was achieved by using powerful NLP algorithms to evaluate past court cases. As a result, by producing a verdict, the model is simulating a human jury.
+Understanding the judicial decision-making process may be aided by the ability to predict the results of legal matters. In light of this, we trained a model that can predict and classify the court's decision given the case's information from the plaintiff and the defendant in textual format. This was achieved by using powerful NLP algorithms to evaluate past court cases. As a result, by producing a verdict, the model is simulating a human jury. 
+
+Overall, this solution can be utilized to speed up judicial decision-making and lighten the load on judges.
 
 # About the dataset
 
@@ -60,6 +62,10 @@ For the project the following Python libraries for Data Science and Machine Lear
 | wordcloud | For creating wordclouds |
 | spacy | For lemmatization |
 | streamlit | For application development |
+
+# Methodology
+
+<img src="images/methodology.jpg" alt="framework" style="display: block; margin-left: auto; margin-right: auto"/>
 
 
 # Modeling (Random Forest, Extreme Gradient Boosting, LSTM)
