@@ -28,24 +28,6 @@ import tensorflow as tf
 vectorizer = joblib.load(open('vectorizers/vectorizer.joblib', 'rb'))
 model = tf.keras.models.load_model('models/model.h5')
 
-
-st.title("""
-SCOTUS Prediction App
-
-This app predicts the **verdict of a Supreme Court case**
-""")
-st.divider()
-
-# Sidebar
-# Header of Specify Input Parameters
-st.sidebar.header('Extras')
-
-st.subheader('Specify Case Facts')
-
-# User input for case description
-facts = st.text_area("", height=100)
-
-
 issue_area = [
             "Criminal Procedure",
             "Civil Rights",
@@ -63,233 +45,250 @@ issue_area = [
             "Interstate Relations"
             ]
 
-issue = st.radio('Issue Area', issue_area)
+st.title("""⚖️ SCOTUS Prediction App ⚖️
+#### This app predicts the **verdict of a Supreme Court case**
+""")
+st.divider()
 
-if issue == "Criminal Procedure":
-    crim_proc = 1
-    civil_rights = 0
-    eco_act = 0
-    first_amend = 0
-    judicial = 0
-    due_process = 0
-    federalism = 0
-    privacy = 0
-    unions = 0
-    fed_tax = 0
-    attorneys = 0
-    misc = 0
-    priv_act = 0
-    inter_rel = 0
-elif issue == "Civil Rights":
-    crim_proc = 0
-    civil_rights = 1
-    eco_act = 0
-    first_amend = 0
-    judicial = 0
-    due_process = 0
-    federalism = 0
-    privacy = 0
-    unions = 0
-    fed_tax = 0
-    attorneys = 0
-    misc = 0
-    priv_act = 0
-    inter_rel = 0
-elif issue == "Economic Activity":
-    crim_proc = 0
-    civil_rights = 0
-    eco_act = 1
-    first_amend = 0
-    judicial = 0
-    due_process = 0
-    federalism = 0
-    privacy = 0
-    unions = 0
-    fed_tax = 0
-    attorneys = 0
-    misc = 0
-    priv_act = 0
-    inter_rel = 0  
-elif issue == "First Amendment":
-    crim_proc = 0
-    civil_rights = 0
-    eco_act = 0
-    first_amend = 1
-    judicial = 0
-    due_process = 0
-    federalism = 0
-    privacy = 0
-    unions = 0
-    fed_tax = 0
-    attorneys = 0
-    misc = 0
-    priv_act = 0
-    inter_rel = 0
-elif issue == "Judicial Power":
-    crim_proc = 0
-    civil_rights = 0
-    eco_act = 0
-    first_amend = 0
-    judicial = 1
-    due_process = 0
-    federalism = 0
-    privacy = 0
-    unions = 0
-    fed_tax = 0
-    attorneys = 0
-    misc = 0
-    priv_act = 0
-    inter_rel = 0
-elif issue == "Due Process":
-    crim_proc = 0
-    civil_rights = 0
-    eco_act = 0
-    first_amend = 0
-    judicial = 0
-    due_process = 1
-    federalism = 0
-    privacy = 0
-    unions = 0
-    fed_tax = 0
-    attorneys = 0
-    misc = 0
-    priv_act = 0
-    inter_rel = 0
-elif issue == "Federalism":
-    crim_proc = 0
-    civil_rights = 0
-    eco_act = 0
-    first_amend = 0
-    judicial = 0
-    due_process = 0
-    federalism = 1
-    privacy = 0
-    unions = 0
-    fed_tax = 0
-    attorneys = 0
-    misc = 0
-    priv_act = 0
-    inter_rel = 0
-elif issue == "Privacy":
-    crim_proc = 0
-    civil_rights = 0
-    eco_act = 0
-    first_amend = 0
-    judicial = 0
-    due_process = 0
-    federalism = 0
-    privacy = 1
-    unions = 0
-    fed_tax = 0
-    attorneys = 0
-    misc = 0
-    priv_act = 0
-    inter_rel = 0  
-elif issue == "Unions":
-    crim_proc = 0
-    civil_rights = 0
-    eco_act = 0
-    first_amend = 0
-    judicial = 0
-    due_process = 0
-    federalism = 0
-    privacy = 0
-    unions = 1
-    fed_tax = 0
-    attorneys = 0
-    misc = 0
-    priv_act = 0
-    inter_rel = 0
-elif issue == "Federal Taxation":
-    crim_proc = 1
-    civil_rights = 0
-    eco_act = 0
-    first_amend = 0
-    judicial = 0
-    due_process = 0
-    federalism = 0
-    privacy = 0
-    unions = 0
-    fed_tax = 1
-    attorneys = 0
-    misc = 0
-    priv_act = 0
-    inter_rel = 0
-elif issue == "Attorneys":
-    crim_proc = 0
-    civil_rights = 0
-    eco_act = 0
-    first_amend = 0
-    judicial = 0
-    due_process = 0
-    federalism = 0
-    privacy = 0
-    unions = 0
-    fed_tax = 0
-    attorneys = 1
-    misc = 0
-    priv_act = 0
-    inter_rel = 0
-elif issue == "Miscellaneous":
-    crim_proc = 0
-    civil_rights = 0
-    eco_act = 0
-    first_amend = 0
-    judicial = 0
-    due_process = 0
-    federalism = 0
-    privacy = 0
-    unions = 0
-    fed_tax = 0
-    attorneys = 0
-    misc = 1
-    priv_act = 0
-    inter_rel = 0  
-elif issue == "Private Action":
-    crim_proc = 0
-    civil_rights = 0
-    eco_act = 0
-    first_amend = 0
-    judicial = 0
-    due_process = 0
-    federalism = 0
-    privacy = 0
-    unions = 0
-    fed_tax = 0
-    attorneys = 0
-    misc = 0
-    priv_act = 1
-    inter_rel = 0
-elif issue == "Interstate Relations":
-    crim_proc = 1
-    civil_rights = 0
-    eco_act = 0
-    first_amend = 0
-    judicial = 0
-    due_process = 0
-    federalism = 0
-    privacy = 0
-    unions = 0
-    fed_tax = 0
-    attorneys = 0
-    misc = 0
-    priv_act = 0
-    inter_rel = 1
-else :
-    crim_proc = 0
-    civil_rights = 0
-    eco_act = 0
-    first_amend = 0
-    judicial = 0
-    due_process = 0
-    federalism = 0
-    privacy = 0
-    unions = 0
-    fed_tax = 0
-    attorneys = 0
-    misc = 0
-    priv_act = 0
-    inter_rel = 0
+col1, col2 = st.columns(2, gap="large")
+
+with col1:
+   st.subheader('Specify Case Facts')
+
+   # User input for case description
+   facts = st.text_area("", height=340)
+#    st.header("A cat")
+#    st.image("https://static.streamlit.io/examples/cat.jpg")
+
+with col2:
+    st.subheader('Specify Issue Area')
+    issue = st.radio('', issue_area)
+
+    if issue == "Criminal Procedure":
+        crim_proc = 1
+        civil_rights = 0
+        eco_act = 0
+        first_amend = 0
+        judicial = 0
+        due_process = 0
+        federalism = 0
+        privacy = 0
+        unions = 0
+        fed_tax = 0
+        attorneys = 0
+        misc = 0
+        priv_act = 0
+        inter_rel = 0
+    elif issue == "Civil Rights":
+        crim_proc = 0
+        civil_rights = 1
+        eco_act = 0
+        first_amend = 0
+        judicial = 0
+        due_process = 0
+        federalism = 0
+        privacy = 0
+        unions = 0
+        fed_tax = 0
+        attorneys = 0
+        misc = 0
+        priv_act = 0
+        inter_rel = 0
+    elif issue == "Economic Activity":
+        crim_proc = 0
+        civil_rights = 0
+        eco_act = 1
+        first_amend = 0
+        judicial = 0
+        due_process = 0
+        federalism = 0
+        privacy = 0
+        unions = 0
+        fed_tax = 0
+        attorneys = 0
+        misc = 0
+        priv_act = 0
+        inter_rel = 0  
+    elif issue == "First Amendment":
+        crim_proc = 0
+        civil_rights = 0
+        eco_act = 0
+        first_amend = 1
+        judicial = 0
+        due_process = 0
+        federalism = 0
+        privacy = 0
+        unions = 0
+        fed_tax = 0
+        attorneys = 0
+        misc = 0
+        priv_act = 0
+        inter_rel = 0
+    elif issue == "Judicial Power":
+        crim_proc = 0
+        civil_rights = 0
+        eco_act = 0
+        first_amend = 0
+        judicial = 1
+        due_process = 0
+        federalism = 0
+        privacy = 0
+        unions = 0
+        fed_tax = 0
+        attorneys = 0
+        misc = 0
+        priv_act = 0
+        inter_rel = 0
+    elif issue == "Due Process":
+        crim_proc = 0
+        civil_rights = 0
+        eco_act = 0
+        first_amend = 0
+        judicial = 0
+        due_process = 1
+        federalism = 0
+        privacy = 0
+        unions = 0
+        fed_tax = 0
+        attorneys = 0
+        misc = 0
+        priv_act = 0
+        inter_rel = 0
+    elif issue == "Federalism":
+        crim_proc = 0
+        civil_rights = 0
+        eco_act = 0
+        first_amend = 0
+        judicial = 0
+        due_process = 0
+        federalism = 1
+        privacy = 0
+        unions = 0
+        fed_tax = 0
+        attorneys = 0
+        misc = 0
+        priv_act = 0
+        inter_rel = 0
+    elif issue == "Privacy":
+        crim_proc = 0
+        civil_rights = 0
+        eco_act = 0
+        first_amend = 0
+        judicial = 0
+        due_process = 0
+        federalism = 0
+        privacy = 1
+        unions = 0
+        fed_tax = 0
+        attorneys = 0
+        misc = 0
+        priv_act = 0
+        inter_rel = 0  
+    elif issue == "Unions":
+        crim_proc = 0
+        civil_rights = 0
+        eco_act = 0
+        first_amend = 0
+        judicial = 0
+        due_process = 0
+        federalism = 0
+        privacy = 0
+        unions = 1
+        fed_tax = 0
+        attorneys = 0
+        misc = 0
+        priv_act = 0
+        inter_rel = 0
+    elif issue == "Federal Taxation":
+        crim_proc = 1
+        civil_rights = 0
+        eco_act = 0
+        first_amend = 0
+        judicial = 0
+        due_process = 0
+        federalism = 0
+        privacy = 0
+        unions = 0
+        fed_tax = 1
+        attorneys = 0
+        misc = 0
+        priv_act = 0
+        inter_rel = 0
+    elif issue == "Attorneys":
+        crim_proc = 0
+        civil_rights = 0
+        eco_act = 0
+        first_amend = 0
+        judicial = 0
+        due_process = 0
+        federalism = 0
+        privacy = 0
+        unions = 0
+        fed_tax = 0
+        attorneys = 1
+        misc = 0
+        priv_act = 0
+        inter_rel = 0
+    elif issue == "Miscellaneous":
+        crim_proc = 0
+        civil_rights = 0
+        eco_act = 0
+        first_amend = 0
+        judicial = 0
+        due_process = 0
+        federalism = 0
+        privacy = 0
+        unions = 0
+        fed_tax = 0
+        attorneys = 0
+        misc = 1
+        priv_act = 0
+        inter_rel = 0  
+    elif issue == "Private Action":
+        crim_proc = 0
+        civil_rights = 0
+        eco_act = 0
+        first_amend = 0
+        judicial = 0
+        due_process = 0
+        federalism = 0
+        privacy = 0
+        unions = 0
+        fed_tax = 0
+        attorneys = 0
+        misc = 0
+        priv_act = 1
+        inter_rel = 0
+    elif issue == "Interstate Relations":
+        crim_proc = 1
+        civil_rights = 0
+        eco_act = 0
+        first_amend = 0
+        judicial = 0
+        due_process = 0
+        federalism = 0
+        privacy = 0
+        unions = 0
+        fed_tax = 0
+        attorneys = 0
+        misc = 0
+        priv_act = 0
+        inter_rel = 1
+    else :
+        crim_proc = 0
+        civil_rights = 0
+        eco_act = 0
+        first_amend = 0
+        judicial = 0
+        due_process = 0
+        federalism = 0
+        privacy = 0
+        unions = 0
+        fed_tax = 0
+        attorneys = 0
+        misc = 0
+        priv_act = 0
+        inter_rel = 0
 
 var_list = [
     crim_proc,
@@ -329,6 +328,6 @@ if st.button("Predict"):
 
     st.write("Prediction:")
     if prediction == 1:
-        st.success("TRUE")
+        st.write("👩🏽‍⚖️... First party is the winner.")
     else:
-        st.error("FALSE")
+        st.write("👩🏽‍⚖️... Second party is the winner.")
