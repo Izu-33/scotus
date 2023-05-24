@@ -37,8 +37,8 @@ Target Variable: First_Party_Winner, if true means that the first party won, and
 
 ### Features
 
-| Feature | Description |
-|---------|-------------|
+| Column | Description |
+|--------|-------------|
 | `ID` | Unique case identiﬁer |
 | `name` | The name of the case |
 | `href` | The Oyez’s API URL for the case |
