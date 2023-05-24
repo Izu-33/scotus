@@ -37,7 +37,7 @@ Target Variable: First_Party_Winner, if true means that the first party won, and
 
 ### Features
 
-| Column | Description |
+| :Column: | Description |
 |--------|-------------|
 | `ID` | Unique case identiﬁer |
 | `name` | The name of the case |
