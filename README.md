@@ -6,6 +6,26 @@ Understanding the judicial decision-making process may be aided by the ability t
 
 Overall, this solution can be utilized to speed up judicial decision-making and lighten the load on judges.
 
+# Libraries used
+
+For the project the following Python libraries for Data Science and Machine Learning were used:
+| Package | Function |
+|---------|----------|
+| numpy | For scientific computation |
+| pandas | For data manipulation |
+| matplotlib | For visualization |
+| seaborn | For visualization |
+| tensorflow | For building neural networks |
+| nltk | For text preprocessing |
+| sklearn | For machine learning |
+| wordcloud | For creating wordclouds |
+| spacy | For lemmatization |
+| streamlit | For application development |
+
+# Methodology
+
+<img src="images/methodology.jpg" alt="framework" style="display: block; margin-left: auto; margin-right: auto"/>
+
 # About the dataset
 
 ### Source
@@ -46,27 +66,6 @@ Target Variable: First_Party_Winner, if true means that the first party won, and
 `disposition`
 
 `issue_area`
-
-# Libraries used
-
-For the project the following Python libraries for Data Science and Machine Learning were used:
-| Package | Function |
-|---------|----------|
-| numpy | For scientific computation |
-| pandas | For data manipulation |
-| matplotlib | For visualization |
-| seaborn | For visualization |
-| tensorflow | For building neural networks |
-| nltk | For text preprocessing |
-| sklearn | For machine learning |
-| wordcloud | For creating wordclouds |
-| spacy | For lemmatization |
-| streamlit | For application development |
-
-# Methodology
-
-<img src="images/methodology.jpg" alt="framework" style="display: block; margin-left: auto; margin-right: auto"/>
-
 
 # Modeling (Random Forest, Extreme Gradient Boosting, LSTM)
 
