@@ -63,7 +63,10 @@ LSTM basically allows a neural network to remember the things that it needs to k
 
 Traditional RNN suffers from what is known as the long-term dependency problem. That is, over time, as more and more information piles up, RNN becomes less effective.
 
-<img src="images/SimpleRNN.png" alt="framework" style="display: block; margin-left: auto; margin-right: auto"/>
+<figure>
+    <img src="images/SimpleRNN.png" alt="framework" style="display: block; margin-left: auto; margin-right: auto"/>
+    <figcaption>Basic RNN. <em>Source</em>: <a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/">Click here for reference</a></figcaption>
+</figure>
 
 LSTM provides a solution to this long-term dependency by adding an internal state to the RNN node. This state is a cell that consists of three parts refered to as **_gates_**, namely:
 
@@ -71,7 +74,10 @@ LSTM provides a solution to this long-term dependency by adding an internal stat
 - Input gate
 - Output gate
 
-<img src="images/LSTM3-chain.png" alt="framework" style="display: block; margin-left: auto; margin-right: auto"/>
+<figure>
+    <img src="images/LSTM3-chain.png" alt="framework" style="display: block; margin-left: auto; margin-right: auto"/>
+    <figcaption>LSTM. <em>Source</em>: <a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/">Click here for reference</a></figcaption>
+</figure>
 
 ### LSTM architecture
 
