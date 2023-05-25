@@ -24,7 +24,6 @@ import tensorflow as tf
 
 
 # Load the trained model
-# model = joblib.load(open('models/model.joblib', 'rb'))
 vectorizer = joblib.load(open('vectorizers/vectorizer.joblib', 'rb'))
 model = tf.keras.models.load_model('models/model.h5')
 
@@ -57,8 +56,6 @@ with col1:
 
    # User input for case description
    facts = st.text_area("", height=340)
-#    st.header("A cat")
-#    st.image("https://static.streamlit.io/examples/cat.jpg")
 
 with col2:
     st.subheader('Specify Issue Area')
@@ -328,6 +325,6 @@ if st.button("Predict"):
 
     st.write("Prediction:")
     if prediction == 1:
-        st.write("👩🏽‍⚖️... First party is the winner.")
+        st.write("👩🏽‍⚖️... First party has a high chance of winning.")
     else:
-        st.write("👩🏽‍⚖️... Second party is the winner.")
+        st.write("👩🏽‍⚖️... Second party has a high chance of winning.")
