@@ -102,7 +102,46 @@ After tuning network parameters and training the LSTM network for 150 epochs, it
 
 # Model User Interface with Streamlit
 
+Streamlit is a free, open-source,  Python framework that makes it simple for data scientists to develop machine learning web applications.
+
+To get started with streamlit, run the following in the terminal:
+
+```
+pip install streamlit
+```
+
+To build a UI, run the following in a Python script (e.g. **`app.py`**):
+
+```
+import streamlit as st
+
+
+st.title("This is a sample application")
+st.divider()
+st.text_area("", height=200)
+st.button("Predict")
+```
+
+To start the application server, run the following in the terminal:
+
+```
+streamlit run app.py
+```
+
+The default browser will open a new tab and the web app will be served on that tab. Below is a picture of our streamlit web application:
+
 <img src="images/app_homepage.jpg" alt="framework" style="display: block; margin-left: auto; margin-right: auto"/>
 
+The hypothetical legal practitioner will enter facts details and also specify what issue area the case falls under and click the **Predict** button after. The app will then collect these input features on which the model has been trained on and return a model prediction output on the screen.
+
 ## Contributors ✨
+
+- Ode, Christopher
+- Nnaji, Maryann
+- Ugwu, Chinyere
+- Anene, Chukwunenye
+- Sule, Muhammad Abba
+- Owolabi, timilehin
+- Bankole, Moses Olamilekan
+- Dan-Ekeh, Izundu
 
