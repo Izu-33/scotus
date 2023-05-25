@@ -59,7 +59,7 @@ LSTM is a type of **Recurrent Neural Network** (RNN) with higher memory power to
 
 LSTM basically allows a neural network to remember the things that it needs to keep hold of context but also to forget the things that are no longer applicable.
 
-### LSTM structure
+### Basic RNN structure
 
 Traditional RNN suffers from what is known as the long-term dependency problem. That is, over time, as more and more information piles up, RNN becomes less effective.
 
@@ -68,6 +68,8 @@ Traditional RNN suffers from what is known as the long-term dependency problem. 
     <figcaption>Basic RNN. <em>Source</em>: <a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/">Click here for reference</a></figcaption>
 </figure>
 <br/>
+
+### LSTM structure
 
 LSTM provides a solution to this long-term dependency by adding an internal state to the RNN node. This state is a cell that consists of three parts refered to as **_gates_**, namely:
 
