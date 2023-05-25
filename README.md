@@ -54,6 +54,18 @@ Target Variable: First_Party_Winner, if true means that the first party won, and
 - `disposition`: The treatment the Supreme Court accorded the court whose decision it reviewed;e.g.: afﬁrmed, reversed, vacated
 - `issue_area`: The pre-deﬁned legal issue category of the case; e.g.: Civil Rights, CriminalProcedure, Federal Taxation
 
+# PCA transformation
+
+Features of our interest were transformed using Principal Component Analysis (PCA) before feeding them to the model.
+
+```
+from sklearn.decomposition import PCA
+
+
+pca = PCA(n_components=64)
+pca_fit = pca.fit_transform(X_train)
+```
+
 # Modeling - Long Short-Term Memory (LSTM)
 
 LSTM is a type of **Recurrent Neural Network** (RNN) with higher memory power to remember the outputs of each node for a more extended period to produce the outcome for the next node efficiently.
@@ -85,6 +97,21 @@ LSTM provides a solution to this long-term dependency by adding an internal stat
 <br/>
 
 ### LSTM architecture
+
+To build the model, the following classes from **`tensorflow`** will have to be imported:
+
+```
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import (
+    LSTM,
+    Dropout,
+    Bidirectional,
+    Dense,
+    Embedding,
+)
+```
+
+After that, the model can now be built like so:
 
 ```
 model = Sequential()
