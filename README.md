@@ -53,16 +53,56 @@ Target Variable: First_Party_Winner, if true means that the first party won, and
 - `disposition`: The treatment the Supreme Court accorded the court whose decision it reviewed;e.g.: afﬁrmed, reversed, vacated
 - `issue_area`: The pre-deﬁned legal issue category of the case; e.g.: Civil Rights, CriminalProcedure, Federal Taxation
 
-# Modeling (Random Forest, Extreme Gradient Boosting, LSTM)
+# Modeling - Long Short-Term Memory (LSTM)
 
-- Random Forest:
+LSTM is a type of **Recurrent Neural Network** (RNN) with higher memory power to remember the outputs of each node for a more extended period to produce the outcome for the next node efficiently.
 
-- Extreme Gradient Boosting:
+LSTM basically allows a neural network to remember the things that it needs to keep hold of context but also to forget the things that are no longer applicable.
 
-- LSTM
+### LSTM structure
+
+Traditional RNN suffers from what is known as the long-term dependency problem. That is, over time, as more and more information piles up, RNN becomes less effective.
+
+<img src="images/SimpleRNN.png" alt="framework" style="display: block; margin-left: auto; margin-right: auto"/>
+
+LSTM provides a solution to this long-term dependency by adding an internal state to the RNN node. This state is a cell that consists of three parts refered to as **_gates_**, namely:
+
+- Forget gate
+- Input gate
+- Output gate
+
+<img src="images/LSTM3-chain.png" alt="framework" style="display: block; margin-left: auto; margin-right: auto"/>
+
+### LSTM architecture
+
+```
+model = Sequential()
+model.add(Embedding(n_unique_words, 128, input_length=maxlen))
+model.add(Bidirectional(LSTM(64)))
+model.add(Dropout(0.2))
+model.add(Dense(128, activation='relu'))
+model.add(Dense(256, activation='relu'))
+model.add(Dense(128, activation='relu'))
+model.add(Dense(1, activation='softmax'))
+model.compile(loss='binary_crossentropy', optimizer='adamax', metrics=['accuracy'])
+```
+
+### Model optimization
+
+RMSProp, AdaDelta and Adam are very similar algorithms. However, Adam has been found to slightly outperform RMSProp and is generally chosen as the best overall choice. For this reason we employed Adamax as our optimizer which is even better than Ada. [Click here for reference](https://keras.io/api/optimizers/adamax/)
+
+# Model Evaluation
+
+The prediction of outcome is seen as a binary classification problem. Hence, **_accuracy_** was employed as the performance metric.
+
+After tuning network parameters and training the LSTM network for 150 epochs, it achieved 65.32% accuracy on the test set.
+
+<img src="images/evaluation.jpg" alt="framework" style="display: block; margin-left: auto; margin-right: auto"/>
+
 
 # Model User Interface with Streamlit
 
 <img src="images/app_homepage.jpg" alt="framework" style="display: block; margin-left: auto; margin-right: auto"/>
 
+## Contributors ✨
 
