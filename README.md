@@ -1,6 +1,8 @@
 # The Supreme Court Of The United States (SCOTUS)
 
-<img src="images/scotus_blue.png" alt="scotus image" style="display: block; margin-left: auto; margin-right: auto"/>
+<center>
+    <img src="images/scotus_blue.png" alt="scotus image" style="display: block; margin-left: auto; margin-right: auto"/>
+</center>
 
 Understanding the judicial decision-making process may be aided by the ability to predict the results of legal matters. In light of this, we trained a model that can predict and classify the court's decision given the case's information from the plaintiff and the defendant in textual format. This was achieved by using powerful NLP algorithms to evaluate past court cases. As a result, by producing a verdict, the model is simulating a human jury. 
 
